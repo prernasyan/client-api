@@ -17,16 +17,14 @@ app.use(cors());
 const mongoose = require("mongoose");
 
 mongoose.connect(process.env.MONGO_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false,
-  useCreateIndex: true,
+  useNewUrlParser: true, 
+  useUnifiedTopology: true 
 });
 
 if (process.env.NODE_ENV !== "production") {
   const mDb = mongoose.connection;
   mDb.on("open", () => {
-    console.log("MongoDB is conneted");
+    console.log("MongoDB is connected");
   });
 
   mDb.on("error", (error) => {
